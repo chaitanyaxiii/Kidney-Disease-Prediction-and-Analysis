@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze Your Kidney Disease</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        let answers = [];
+
+        function sendAnswer(answer) {
+            answers.push(answer);
+            fetch('/chatbot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({answers: answers})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.end) {
+                    document.getElementById('question').innerText = data.prescription;
+                    document.getElementById('yes-button').style.display = 'none';
+                    document.getElementById('no-button').style.display = 'none';
+                } else {
+                    document.getElementById('question').innerText = data.question;
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            sendAnswer('');
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Kidney Disease Analysis</h2>
+        <p id="question"></p>
+        <button id="yes-button" class="btn" onclick="sendAnswer('Yes')">Yes</button>
+        <button id="no-button" class="btn" onclick="sendAnswer('No')">No</button>
+    </div>
+</body>
+</html>

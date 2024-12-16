@@ -1,0 +1,33 @@
+0 Aloevera
+1 Amla
+2 Amruthaballi
+3 Arali
+4 Astma_weed
+5 Bamboo
+6 Beans
+7 Betel
+8 Bhrami
+9 Bringaraja
+10 Castor
+11 Catharanthus
+12 Chilly
+13 Citron lime (herelikai)
+14 Coffee
+15 Common rue(naagdalli)
+16 Coriender
+17 Curry
+18 Drumstick
+19 Eucalyptus
+20 Ginger
+21 Gauva
+22 Henna
+23 Hibiscus
+24 Insulin
+25 Jackfruit
+26 Jasmine
+27 Lemon
+28 Mango
+29 Mint
+30 Neem
+31 Onion
+32 Palak(Spinach)

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions</title>
+    <style>
+        body {
+            background-image: url('/static/banner.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: black;
+            text-align: center;
+            padding: 50px;
+        }
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        nav button:hover {
+            background-color: #45a049;
+        }
+        .solution-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AI Generated Solutions</h1>
+        <nav>
+            <button onclick="location.href='/dataset'">Display Dataset</button>
+            <button onclick="location.href='/confusion_matrix'">Show Confusion Matrix</button>
+            <button onclick="location.href='/random_graph'">Show Random Graph</button>
+            <button onclick="location.href='/doctors'">Show Doctors</button>
+        </nav>
+    </header>
+    <div class="solution-container">
+        <p>{{ solution }}</p>
+        <a href="/">Go back</a>
+    </div>
+</body>
+</html>

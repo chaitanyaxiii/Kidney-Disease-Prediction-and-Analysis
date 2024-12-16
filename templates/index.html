@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidney Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Kidney Disease Detection</h1>
+        <nav>
+            <button onclick="location.href='/dataset'">Display Dataset</button>
+            <button onclick="location.href='/confusion_matrix'">Show Confusion Matrix</button>
+            <button onclick="location.href='/random_graph'">Show Random Graph</button>
+            <button onclick="location.href='/doctors'">Show Doctors</button>
+            <button onclick="location.href='/solutions'">Solutions and Treatments</button>
+            
+            <button onclick="location.href='/logout'">Logout</button>
+        </nav>
+    </header>
+    <div class="content">
+        <form action="/predict" method="post">
+            <label for="pcv">PCV:</label>
+            <input type="text" id="pcv" name="pcv" class="input-box"><br>
+            <label for="sc">SC:</label>
+            <input type="text" id="sc" name="sc" class="input-box"><br>
+            <label for="hemo">Hemo:</label>
+            <input type="text" id="hemo" name="hemo" class="input-box"><br>
+            <label for="sg">SG:</label>
+            <input type="text" id="sg" name="sg" class="input-box"><br>
+            <label for="rc">RC:</label>
+            <input type="text" id="rc" name="rc" class="input-box"><br>
+            <input type="submit" value="Predict" class="btn">
+        </form>
+    </div>
+</body>
+</html>

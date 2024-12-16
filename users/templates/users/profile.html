@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurvedic Leaf Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/ayr1.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            text-align: center;
+            margin-top: 0;
+            color: #00695c;
+        }
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .info, .buttons, .output {
+            margin-bottom: 20px;
+        }
+        .buttons {
+            text-align: center;
+        }
+        .upload-label {
+            padding: 10px 20px;
+            background-color: #00695c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .upload-label:hover {
+            background-color: #004d40;
+        }
+        .output-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .output-table th, .output-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .output-table th {
+            background-color: #f2f2f2;
+        }
+        .output-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+            margin-bottom: 15px;
+            text-align: center;
+            border-radius: 4px;
+            display: none;
+            white-space: pre-line; /* Preserve line breaks in text */
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .btn-red {
+            background-color: #f44336;
+        }
+        .btn-red:hover {
+            background-color: #da190b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Ayurvedic Leaf Detection</h1>
+        
+        <div class="image-container">
+            <img id="selected-image" src="" alt="Selected Image">
+        </div>
+
+        <div class="info">
+            <p id="image-name" class="info-text">Image Name: </p>
+            <p id="predicted-class" class="info-text">Predicted Class: </p>
+        </div>
+
+        <div class="buttons">
+            <!-- Upload button -->
+            <label for="upload-file" class="upload-label btn">Upload Image</label>
+            <input type="file" id="upload-file" accept=".jpg, .jpeg, .png, .bmp" style="display: none;">
+            <!-- Predict button -->
+            <button id="predict-btn" the "show-graph-btn" class="btn">Show Graph</button>
+        </div>
+
+        <div class="output">
+            <div id="medicinal-use-text" class="alert"></div>
+            <table id="output-table" class="output-table">
+                <thead>
+                    <tr>
+                        <th>Filename</th>
+                        <th>Predicted Class</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically added by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
